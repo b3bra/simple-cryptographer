@@ -5,7 +5,7 @@ import base64
 
 @app.route("/")
 def index():
-    return render_template("index.html", title = "Хз главная")
+    return render_template("base.html", title = "Encoder & Decoder")
 
 @app.route("/encode", methods = ["GET", "POST"])
 def encode():
