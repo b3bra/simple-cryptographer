@@ -1,19 +1,25 @@
-{% extends "base.html" %}
-
-{% block content %}
-    {% if result %}
-    <p>
-        <label>Result: </label><input type="text" value="{{ result }}" readonly>
-    </p><hr>
-    {% endif %}
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.data.label }}: {{ form.data(size = 32) }}<br>
-            {% for error in form.data.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+{% extends "base.html" %} {% block content %}
+<h1 class="text-center mt-5 mb-5">Decoder</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card shadow">
+        <div class="card-body">
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                  {{ form.data.label }}: {{ form.data(size = 32) }}<br />
+                  {% for error in form.data.errors %}
+                  <span style="color: red">[{{ error }}]</span>
+                  {% endfor %}
+                </p>
+                <p>{{ form.submit() }}</p>
+              </form>
+            {% if result %}
+                <label>Result:</label>
+                <input type="text" value="{{ result }}" readonly />
+            {% endif %}
+        </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
