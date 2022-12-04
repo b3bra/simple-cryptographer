@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if result %}
+    <p>
+        <label>Result: </label><input type="text" value="{{ result }}" readonly>
+    </p><hr>
+    {% endif %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.data.label }}: {{ form.data(size = 32) }}<br>
+            {% for error in form.data.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
